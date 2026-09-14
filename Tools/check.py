@@ -63,7 +63,7 @@ def check_manual_paths(text, source, base=None):
             continue
         if any(ch in candidate for ch in "<>{}*$") or " " in candidate.split("/")[0]:
             continue
-        if candidate.startswith(("python3", "git ", "http")):
+        if candidate.startswith(("python3", "git ", "http", ".git", ".env")):
             continue
         if "/" not in candidate and candidate not in ("CLAUDE.md", "AGENTS.md", "README.md"):
             continue
