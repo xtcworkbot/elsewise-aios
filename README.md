@@ -11,7 +11,7 @@ Built by Elsewise, from months of running a real business on this exact system e
 - House rules that were paid for. Answer the question asked. Check before claiming. Decide instead of handing you a menu. Never a yes man. Always ask before spending money, messaging people, publishing, deleting or widening access.
 - A filing system that runs itself. Every folder knows what it holds, every new thing has one right home, and the assistant creates and files things the same way every time.
 - Memory that belongs to you. Stored in this folder, shared by Claude and Codex, never locked inside one app.
-- Ten skills out of the box. Setup, a daily brief, deep interviews, projects, memory, saving, linking, a health check, a weekly improvement habit, and building your own skills.
+- Eleven skills out of the box. Setup, a daily brief, deep interviews, projects, memory, saving, a private GitHub backup, linking, a health check, a weekly improvement habit, and building your own skills.
 - Both engines. Claude Code and Codex read the same files, the same rules and the same memory. Switch whenever you like.
 
 ## Getting started
@@ -33,6 +33,7 @@ Built by Elsewise, from months of running a real business on this exact system e
 | Start a project, or bring in an existing folder | "New project..." or "Bring in my folder..." |
 | Make sure something is not forgotten | "Remember that..." |
 | Wrap up | "Save" or "That's me for today" |
+| Keep a private copy on GitHub | "Back this up" or "Is this backed up?" |
 | Make something findable | "Link this..." |
 | Check the system is working | "Audit my system" |
 | Take a job off your plate | "Level up" |
@@ -60,6 +61,7 @@ In Claude Code, skills are typed with a slash, like `/brief`. In Codex, with a d
 
 ## Keeping it healthy
 
+- Say "back this up" once. From then on every save is pushed to a private repository on your own GitHub account. If your computer dies, download it and carry on.
 - Run the audit skill a week after setup, then every month.
 - Run the level-up skill once a week. One small improvement each time.
 - Big video and audio files stay out of the save history automatically. Your passwords and keys go in the `.env` file the setup made, which is never saved to history and which Claude is blocked from reading. `.env.example` explains it.

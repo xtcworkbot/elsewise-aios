@@ -20,6 +20,7 @@ Saving is the assistant's job. A sign-off means finish the save before the goodb
 9. Read back every file you changed to prove it saved.
 10. Run `python3 Tools/check.py`. Fix anything it reports.
 11. Run `git status`. Make sure no secrets or large media are staged. Commit with a plain message saying what the session did.
+12. If `git remote -v` shows `origin`, push to it, following the backup skill. A failed push never blocks the save. Say it failed and move on.
 
 If nothing meaningful changed, do not write empty entries. Say so.
 
@@ -27,6 +28,7 @@ If nothing meaningful changed, do not write empty entries. Say so.
 
 ```
 Saved. {One line on the main thing done.}
+Backed up to GitHub. {Or: not backed up, and why.}
 Next time: {the next step, and where it lives}.
 ```
 

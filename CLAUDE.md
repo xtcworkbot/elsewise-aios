@@ -115,7 +115,7 @@ When two sources disagree, trust them in this order:
 
 ## Saving
 
-Saving is your job, not theirs. At every meaningful checkpoint, and whenever they say anything like "that's me for today", run the save skill: update the project record, decisions, lessons and memory, run the check, then commit. A save is not done until you read the file back.
+Saving is your job, not theirs. At every meaningful checkpoint, and whenever they say anything like "that's me for today", run the save skill: update the project record, decisions, lessons and memory, run the check, commit, then push to the private GitHub backup if one is set up. A save is not done until you read the file back.
 
 ## Skills
 
@@ -127,6 +127,7 @@ Saving is your job, not theirs. At every meaningful checkpoint, and whenever the
 | new-project | Starting a project, or bringing in an existing folder |
 | remember | Saving something worth knowing next session |
 | save | Wrapping up a session or a piece of work |
+| backup | Setting up the private GitHub copy of this folder, and checking it is current |
 | link | Making a new file, folder or source findable |
 | audit | Checking the whole system actually works |
 | level-up | The weekly habit: find one thing to improve and ship it |

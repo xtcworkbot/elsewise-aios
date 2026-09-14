@@ -10,6 +10,7 @@ The checklist for the start of a session and for the brief skill. Gather what is
 4. An automation in `System/Automations.md` that should have run and has no record of running.
 5. Files in `Scratch/` older than 14 days.
 6. An onboarding answer still marked "Not set yet" that a current project depends on.
+7. No GitHub backup set up, or the last push to it more than seven days old while work has happened. Check with `git status -sb` and the backup skill.
 
 If none of these need the owner, say nothing about them.
 

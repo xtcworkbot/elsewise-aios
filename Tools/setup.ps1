@@ -5,7 +5,7 @@
 # Check only, no installs:            powershell -ExecutionPolicy Bypass -File Tools\setup.ps1 -Check
 #
 # Installs, only if missing: Git for Windows, Python 3, Node, VS Code,
-# Claude Code and Codex. Uses winget, which comes with Windows 10 and 11.
+# the GitHub tool, Claude Code and Codex. Uses winget, which comes with Windows 10 and 11.
 # Then creates .env from .env.example, runs the system check and prints
 # what it found. Safe to run twice. It changes nothing that already works.
 #
@@ -85,6 +85,12 @@ if (Have codex) { Ok (codex --version 2>&1 | Select-Object -First 1) } else {
     if (Have npm) { npm install -g @openai/codex | Out-Null; RefreshPath }
     if (Have codex) { Ok (codex --version 2>&1 | Select-Object -First 1) } else { Todo "Codex did not install (optional, Claude Code is enough to start)" }
   }
+}
+
+Say "GitHub tool (for the private backup)"
+if (Have gh) { Ok (gh --version 2>&1 | Select-Object -First 1) } else {
+  InstallWith "GitHub.cli" "GitHub tool"
+  if (Have gh) { Ok (gh --version 2>&1 | Select-Object -First 1) } elseif (-not $Check) { Todo "GitHub tool did not install" }
 }
 
 Say "Key file"

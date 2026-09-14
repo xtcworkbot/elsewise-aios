@@ -129,7 +129,7 @@ Build everything in one pass after the yes. Use the owner's words wherever the w
 14. The manual. In `CLAUDE.md` and every file in `Brain/`, replace `{{AI_NAME}}`, `{{OWNER_NAME}}`, `{{OWNER_ADDRESS}}`, `{{BUSINESS_NAME}}`, `{{ONE_LINE_BUSINESS}}`, `{{NORTH_STAR}}` and `{{MEASURE}}`. The one line business is one plain sentence about what the business does and for whom. Delete the paragraph in `CLAUDE.md` that begins "If this file still shows a name in double curly brackets". Then copy `CLAUDE.md` over `AGENTS.md` so they match exactly.
 15. `System/Intake.md`. Set the status to finished, with today's date.
 16. Run `python3 Tools/check.py`. Fix every failure it reports and run it again until it passes.
-17. Save point. Run `git status`. Make sure nothing secret and no large media is about to be committed. Commit with the message "Set up" and the assistant's name. Local only. Never push anywhere.
+17. Save point. Run `git status`. Make sure nothing secret and no large media is about to be committed. Commit with the message "Set up" and the assistant's name. Local only. The private GitHub backup is offered in the close and set up with the backup skill, never before their yes.
 
 ## The close
 
@@ -150,16 +150,17 @@ Skills that came with it. Say the words or type the slash:
 - grill-me: gets a plan or an idea out of your head and into a file, and finds the holes in it.
 - new-project: starts a piece of work properly, or brings in a folder you already have.
 - remember: saves something worth knowing next time.
-- save: wraps up a session so nothing is lost.
+- save: wraps up a session so nothing is lost, and pushes to your backup.
+- backup: sets up and keeps a private copy of this folder on your GitHub.
 - link: makes a file or source findable.
 - audit: checks the whole system is working.
 - level-up: the weekly habit, one job off your plate at a time.
 - make-skill: locks in a process you have proven so it runs the same way every time.
 
 Your first three moves:
-1. Close this chat and open a new one, so {assistant name} wakes up with its brain loaded. Ask: "{Assistant name}, what's the one thing I should focus on this week?"
-2. {The most useful next step from their answers: usually bring in their existing work with new-project, or connect the first tool from System/Connections.md.}
-3. {The second: usually scope the first thing to hand over with level-up, or grill-me on the constraint they named.}
+1. Say "back this up". {Assistant name} puts a private copy of this folder on your own GitHub account, so a dead laptop never takes it with it. Every save goes there from then on.
+2. Close this chat and open a new one, so {assistant name} wakes up with its brain loaded. Ask: "{Assistant name}, what's the one thing I should focus on this week?"
+3. {The most useful next step from their answers: usually bring in their existing work with new-project, or connect the first tool from System/Connections.md.}
 
 Or tell {assistant name} what is on your mind. It knows where everything goes now.
 ```
@@ -183,5 +184,5 @@ When onboarding has already finished:
 - Ask for passwords, API keys, bank details or private contents.
 - Save a guess or a suggestion as a fact.
 - Overwrite or move files that were already in the folder.
-- Push to GitHub or any remote.
+- Push to GitHub or any remote during onboarding. The backup comes after, through the backup skill, with their yes.
 - Connect a tool. Connecting comes after onboarding, one tool at a time, with the owner signing in themselves.

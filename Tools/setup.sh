@@ -5,7 +5,7 @@
 # Check only, no installs:   bash Tools/setup.sh --check
 #
 # Installs, only if missing: Apple command line tools (git and python3),
-# Homebrew, Node, VS Code, Claude Code and Codex. Then creates .env from
+# Homebrew, Node, VS Code, the GitHub tool, Claude Code and Codex. Then creates .env from
 # .env.example, runs the system check and prints what it found.
 # Safe to run twice. It changes nothing that already works.
 
@@ -84,6 +84,13 @@ if have codex; then ok "$(codex --version 2>/dev/null | head -1)"; else
     curl -fsSL https://chatgpt.com/codex/install.sh | sh
     export PATH="$HOME/.local/bin:$PATH"
     if have codex; then ok "$(codex --version 2>/dev/null | head -1)"; else todo "Codex did not install (optional, Claude Code is enough to start)"; fi
+  fi
+fi
+
+say "GitHub tool (for the private backup)"
+if have gh; then ok "$(gh --version | head -1)"; else
+  if [ $CHECK_ONLY = 1 ] || ! have brew; then todo "not installed"; else
+    brew install gh && ok "$(gh --version | head -1)" || todo "GitHub tool did not install"
   fi
 fi
 
