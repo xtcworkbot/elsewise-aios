@@ -1,0 +1,45 @@
+# Proves the system runs on a real Windows machine and a real Mac.
+# Runs on GitHub's own computers every time the folder is pushed.
+name: Mac and Windows check
+on: [push, workflow_dispatch]
+jobs:
+  check:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: System check with the python command
+        shell: bash
+        run: python Tools/check.py
+      - name: Start of session hook, exactly as Claude Code runs it in Git Bash
+        shell: bash
+        run: |
+          export CLAUDE_PROJECT_DIR="$PWD"
+          CMD=$(python -c "import json;print(json.load(open('.claude/settings.json'))['hooks']['SessionStart'][0]['hooks'][0]['command'])")
+          echo "$CMD"
+          OUT=$(eval "$CMD")
+          echo "$OUT" | head -c 300; echo
+          echo "$OUT" | python -c "import json,sys;d=json.load(sys.stdin);assert 'onboard' in d['hookSpecificOutput']['additionalContext'];print('brain hook ok')"
+      - name: Reply voice hook, the same way
+        shell: bash
+        run: |
+          export CLAUDE_PROJECT_DIR="$PWD"
+          CMD=$(python -c "import json;print(json.load(open('.claude/settings.json'))['hooks']['UserPromptSubmit'][0]['hooks'][0]['command'])")
+          OUT=$(eval "$CMD")
+          echo "$OUT" | python -c "import json,sys;d=json.load(sys.stdin);assert 'VOICE' in d['hookSpecificOutput']['additionalContext'];print('voice hook ok')"
+      - name: Windows setup script, check mode
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./Tools/setup.ps1 -Check
+      - name: Windows setup script, full run
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          ./Tools/setup.ps1
+          if (-not (Test-Path .env)) { throw ".env was not created" }
+          "setup made .env"
+      - name: Mac setup script, check mode
+        if: runner.os == 'macOS'
+        run: bash Tools/setup.sh --check
