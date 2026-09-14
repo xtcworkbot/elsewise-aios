@@ -1,6 +1,7 @@
 # Secrets. Key values live only in .env. Markdown files name the key, never the value.
 .env
 .env.*
+!.env.example
 *.pem
 *.key
 *token*.json
