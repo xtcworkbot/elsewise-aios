@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 ROOT_ALLOWED = {
     "CLAUDE.md", "AGENTS.md", "README.md", ".gitignore", ".env", ".git",
-    ".claude", ".agents", ".codex", ".DS_Store",
+    ".claude", ".agents", ".codex", ".DS_Store", "Thumbs.db", "desktop.ini",
     "Brain", "Memory", "Context", "Projects", "Decisions", "System",
     "Templates", "Outputs", "Tools", "Scratch", "Archive",
 }

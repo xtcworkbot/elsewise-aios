@@ -1,11 +1,17 @@
 {
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  },
   "hooks": {
     "SessionStart": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/load-brain.py\"",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/load-brain.py\" 2>/dev/null || python \"$CLAUDE_PROJECT_DIR/.claude/hooks/load-brain.py\" 2>/dev/null || py -3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/load-brain.py\"",
             "timeout": 10
           }
         ]
@@ -16,7 +22,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/reply-style.py\"",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/reply-style.py\" 2>/dev/null || python \"$CLAUDE_PROJECT_DIR/.claude/hooks/reply-style.py\" 2>/dev/null || py -3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/reply-style.py\"",
             "timeout": 10
           }
         ]

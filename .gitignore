@@ -48,6 +48,7 @@ Scratch/*
 # System and tool clutter
 .DS_Store
 Thumbs.db
+desktop.ini
 __pycache__/
 *.pyc
 node_modules/

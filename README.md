@@ -66,7 +66,7 @@ In Claude Code, skills are typed with a slash, like `/brief`. In Codex, with a d
 
 ## Needs
 
-- A Mac. Windows is not tested yet.
+- A Mac or a Windows computer. On Windows, start with Claude Code. Codex on Windows is not tested yet.
 - Claude Code or Codex, signed in. In Codex, hooks and custom agents may need turning on in its settings. Skills work without that.
-- Git, for save points. On a Mac it installs with Apple's command line tools the first time you use it.
-- Python 3, for the hooks and the check script. It comes with those same tools on a Mac.
+- Git, for save points. On a Mac it installs with Apple's command line tools the first time you use it. On Windows, install Git for Windows before Claude Code, because Claude Code uses the Git Bash that comes with it.
+- Python 3, for the hooks and the check script. It comes with those same tools on a Mac. On Windows, install it from python.org and tick "Add python.exe to PATH". On Windows the check command is `python Tools/check.py`.
