@@ -71,7 +71,10 @@ if (Have claude) { Ok (claude --version 2>&1 | Select-Object -First 1) } else {
   if ($Check) { Todo "not installed" } else {
     try { irm https://claude.ai/install.ps1 | iex } catch { }
     RefreshPath
-    $env:Path += ";$env:USERPROFILE\.local\bin"
+    $bin = "$env:USERPROFILE\.local\bin"
+    $userPath = [Environment]::GetEnvironmentVariable("Path", "User")
+    if ($userPath -notlike "*$bin*") { [Environment]::SetEnvironmentVariable("Path", "$userPath;$bin", "User") }
+    $env:Path += ";$bin"
     if (Have claude) { Ok (claude --version 2>&1 | Select-Object -First 1) } else { Todo "Claude Code did not install" }
   }
 }
