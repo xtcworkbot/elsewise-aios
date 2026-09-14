@@ -25,7 +25,7 @@ function RefreshPath {
   $env:Path = [Environment]::GetEnvironmentVariable("Path", "Machine") + ";" +
               [Environment]::GetEnvironmentVariable("Path", "User")
 }
-function Winget($id, $name) {
+function InstallWith($id, $name) {
   if ($Check) { Todo "$name not installed"; return }
   if (-not (Have winget)) { Todo "$name not installed, and winget is missing. Install App Installer from the Microsoft Store, then run this again."; return }
   winget install --id $id -e --accept-package-agreements --accept-source-agreements --silent | Out-Null
@@ -37,7 +37,7 @@ if (Have winget) { Ok "present" } else { Todo "missing. Open the Microsoft Store
 
 Say "Git for Windows"
 if (Have git) { Ok (git --version) } else {
-  Winget "Git.Git" "Git"
+  InstallWith "Git.Git" "Git"
   if (Have git) { Ok (git --version) } elseif (-not $Check) { Todo "Git did not install" }
 }
 
@@ -50,19 +50,19 @@ foreach ($c in @("python", "python3", "py")) {
   }
 }
 if ($py) { Ok "$(& $py --version) as '$py'" } else {
-  Winget "Python.Python.3.12" "Python"
+  InstallWith "Python.Python.3.12" "Python"
   if (Have python) { $py = "python"; Ok (python --version) } elseif (-not $Check) { Todo "Python did not install" }
 }
 
 Say "Node"
 if (Have node) { Ok (node --version) } else {
-  Winget "OpenJS.NodeJS.LTS" "Node"
+  InstallWith "OpenJS.NodeJS.LTS" "Node"
   if (Have node) { Ok (node --version) } elseif (-not $Check) { Todo "Node did not install" }
 }
 
 Say "VS Code"
 if (Have code) { Ok "installed" } else {
-  Winget "Microsoft.VisualStudioCode" "VS Code"
+  InstallWith "Microsoft.VisualStudioCode" "VS Code"
   if (Have code) { Ok "installed" } elseif (-not $Check) { Todo "VS Code did not install" }
 }
 
