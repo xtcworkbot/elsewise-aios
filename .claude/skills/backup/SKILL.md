@@ -20,7 +20,7 @@ Do this the first time, or when `git remote -v` shows no `origin`.
 2. If they have no GitHub account, ask them to make one at github.com in their browser first. Free is fine.
 3. Check `gh --version`. If the GitHub tool is missing, run the setup script, which installs it: `bash Tools/setup.sh` on a Mac, `Tools\setup.cmd` on Windows. Then continue.
 4. Run `gh auth status`. If not signed in, run `gh auth login --web --git-protocol https` and tell them a browser window will open for them to sign in to GitHub and approve. Never ask for a password or token in the chat. Wait for them to say it is done.
-5. Confirm the folder is a git repository with at least one commit. If not, run the save skill first.
+5. Confirm the folder is a git repository with at least one commit. If not, run `git init -b main` and then the save skill first. If the branch is called master, rename it: `git branch -M main`.
 6. Run `python3 Tools/check.py`. It must pass, and `git status` must show no `.env` and no large media staged.
 7. Create the repository, named after the assistant in lowercase with hyphens, for example `jarvis-aios`:
    `gh repo create <name> --private --source . --remote origin --push`
@@ -41,7 +41,7 @@ After every commit, and whenever the owner asks:
 When the owner asks whether they are backed up, or the heartbeat raises it:
 
 1. `git fetch origin` then `git status -sb`. Ahead by anything means the backup is behind. Push.
-2. `git log -1 --format=%cd origin/main` gives the date of the last backed up save. Older than seven days while work has happened is a problem worth raising.
+2. `git log -1 --format=%cd @{u}` gives the date of the last backed up save. Older than seven days while work has happened is a problem worth raising.
 
 ## Never
 

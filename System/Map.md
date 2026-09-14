@@ -68,7 +68,7 @@ An area file describes how things are. A project describes what is being changed
 3. A folder either has real content or it does not exist, apart from the eleven that ship with the system.
 4. Preserve before changing. Nothing is deleted. Move it to `Archive/` with the date.
 5. Big media stays out of git. Video, audio, raw photos and large exports are ignored by `.gitignore`. Their folders and notes are still committed.
-6. Secrets live only in `.env`, which git ignores. `.env.example` explains the file and the setup script creates `.env` from it. Markdown files name the key, never the value. Claude is blocked from reading `.env` in `.claude/settings.json`.
+6. Secrets live only in `.env`, which git ignores. `.env.example` explains the file and the setup script creates `.env` from it. Markdown files name the key, never the value. `.claude/settings.json` blocks Claude from opening `.env`, and the manual tells it never to print it.
 7. After a structural change, run `python3 Tools/check.py`, fix what it reports, then commit.
 8. `Scratch/` is cleared of anything older than 14 days. Keep it by moving it to the right folder.
 

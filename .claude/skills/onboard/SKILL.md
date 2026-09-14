@@ -113,7 +113,7 @@ Ask: "Is this right, and should I build it?" Wait for a clear yes. If they corre
 
 Build everything in one pass after the yes. Use the owner's words wherever the wording carries meaning. Write unknowns as "Unknown as of" and the date. Never invent a fact to fill a gap.
 
-1. Git. If the folder still points at the Elsewise repository, run `git remote remove origin` so nothing of theirs can ever be pushed there. If the folder is not a git repository, run `git init`. If git has no name set, ask "What name should appear on the save history? Your own name is fine," and set it for this folder only with `git config user.name`. Set the email to `owner@local` unless they give one. Never change their global settings.
+1. Git. If the folder still points at the Elsewise repository, run `git remote remove origin` so nothing of theirs can ever be pushed there. If the folder is not a git repository, run `git init -b main`. If git has no name set, ask "What name should appear on the save history? Your own name is fine," and set it for this folder only with `git config user.name`. Set the email to `owner@local` unless they give one. Never change their global settings.
 2. `Brain/SOUL.md`. From Part 1, plus the personality that fits the role and the minds they chose. Write it as the assistant speaking about itself.
 3. `Brain/USER.md`. From Parts 2 and 6, and anything revealing from the rest. This file should read like the assistant truly knows them.
 4. `Brain/STANDARD.md`. Keep the house rules. Fill "The owner's own rules" from Parts 7 and 8.

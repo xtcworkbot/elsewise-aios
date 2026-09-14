@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)/.claude/hooks/load-brain.py\"",
+            "command": "python3 .claude/hooks/load-brain.py 2>/dev/null || python .claude/hooks/load-brain.py 2>/dev/null || py -3 .claude/hooks/load-brain.py",
             "timeout": 10
           }
         ]
@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)/.claude/hooks/reply-style.py\"",
+            "command": "python3 .claude/hooks/reply-style.py 2>/dev/null || python .claude/hooks/reply-style.py 2>/dev/null || py -3 .claude/hooks/reply-style.py",
             "timeout": 10
           }
         ]

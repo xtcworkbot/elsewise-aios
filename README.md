@@ -64,12 +64,12 @@ In Claude Code, skills are typed with a slash, like `/brief`. In Codex, with a d
 - Say "back this up" once. From then on every save is pushed to a private repository on your own GitHub account. If your computer dies, download it and carry on.
 - Run the audit skill a week after setup, then every month.
 - Run the level-up skill once a week. One small improvement each time.
-- Big video and audio files stay out of the save history automatically. Your passwords and keys go in the `.env` file the setup made, which is never saved to history and which Claude is blocked from reading. `.env.example` explains it.
+- Big video and audio files stay out of the save history automatically. Your passwords and keys go in the `.env` file the setup made, which is never saved to history and which the assistant is told never to open. `.env.example` explains it.
 - `python3 Tools/check.py` checks the wiring any time.
 
 ## Needs
 
 - A Mac or a Windows computer. The setup script installs everything below. On Windows, start with Claude Code. Codex on Windows is not tested yet.
-- A paid Claude plan for Claude Code, or a ChatGPT plan for Codex. In Codex, hooks and custom agents may need turning on in its settings. Skills work without that.
+- A paid Claude plan for Claude Code, or a ChatGPT plan for Codex. In Codex, hooks and custom agents may need turning on in its settings. Skills work without that. If your assistant does not know you when you open Codex, hooks are off, and it reads its brain files itself.
 - Git, for save points. Python 3, for the hooks and the check script. Node, for some tools. On Windows the check command is `python Tools\check.py`.
 - Keep the folder out of iCloud Drive, OneDrive and Dropbox. Syncing breaks the save history.

@@ -150,12 +150,13 @@ In Claude Code type /name. In Codex type $name. The Codex entries in `.agents/sk
 
 - `.claude/hooks/load-brain.py` loads `Brain/SOUL.md`, `Brain/USER.md`, `Brain/HEARTBEAT.md`, `Context/Priorities.md`, `Memory/MEMORY.md` and `Projects/_index.md` at the start of every session. Read `Brain/STANDARD.md` and `Brain/VOICE.md` yourself when the work calls for them.
 - `.claude/hooks/reply-style.py` puts the reply voice from `Brain/VOICE.md` in front of you on every message.
-- Claude registers them in `.claude/settings.json`. Codex registers the same scripts in `.codex/hooks.json`.
+- Claude registers them in `.claude/settings.json`. Codex registers the same scripts in `.codex/hooks.json`, which only run if hooks are turned on in Codex.
+- If no brain block was loaded at the start of this session, read those six files yourself before anything else. Never work without them.
 
 ## Housekeeping
 
 - Preserve before changing. Nothing is deleted. Superseded material goes to `Archive/` with the date in the folder name.
 - A folder either has real content or it does not exist.
 - Files people read are written plain: headings, lists and tables. No walls of text.
-- Secrets never go in a markdown file, a chat or a commit. Key values live in `.env`, which git ignores and Claude cannot read. `.env.example` explains it. When a tool needs a key, write the key name in `.env` and the connection file, then ask the owner to paste the value into `.env` themselves.
+- Secrets never go in a markdown file, a chat or a commit. Key values live in `.env`, which git ignores and which you never open or print. `.env.example` explains it. When a tool needs a key, add the key name with `echo "KEY_NAME=" >> .env`, name it in the connection file, then ask the owner to paste the value into `.env` themselves.
 - After any change to structure, run `python3 Tools/check.py` and commit. The commit history is how the owner checks your work.
