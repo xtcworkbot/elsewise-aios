@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 ROOT_ALLOWED = {
-    "CLAUDE.md", "AGENTS.md", "README.md", ".gitignore", ".env", ".git",
+    "CLAUDE.md", "AGENTS.md", "README.md", ".gitignore", ".gitattributes", ".env", ".env.example", ".git",
     ".claude", ".agents", ".codex", ".DS_Store", "Thumbs.db", "desktop.ini",
     "Brain", "Memory", "Context", "Projects", "Decisions", "System",
     "Templates", "Outputs", "Tools", "Scratch", "Archive",
@@ -159,6 +159,22 @@ def check_hooks():
                 fail(f"{settings.relative_to(ROOT)} runs {script}, which does not exist.")
 
 
+def check_secrets():
+    if not (ROOT / ".env.example").exists():
+        fail(".env.example is missing. It explains where keys go.")
+    if not (ROOT / ".env").exists():
+        note("No .env yet. Run the setup script, or copy .env.example to .env.")
+    ignore = ROOT / ".gitignore"
+    if not ignore.exists() or ".env" not in ignore.read_text(encoding="utf-8").split():
+        fail(".gitignore does not ignore .env, so a key could be committed.")
+    tracked = ROOT / ".git" / "index"
+    if tracked.exists() and b".env\x00" in tracked.read_bytes().replace(b".env.example\x00", b""):
+        fail(".env is tracked by git. Run git rm --cached .env, then commit.")
+    for setup in ("Tools/setup.sh", "Tools/setup.ps1", "Tools/setup.cmd"):
+        if not (ROOT / setup).exists():
+            fail(f"{setup} is missing, so a new computer cannot be set up.")
+
+
 def check_memory():
     memory = ROOT / "Memory"
     index = memory / "MEMORY.md"
@@ -196,6 +212,7 @@ def main():
     check_skills()
     check_agents()
     check_hooks()
+    check_secrets()
     check_memory()
     check_projects()
 

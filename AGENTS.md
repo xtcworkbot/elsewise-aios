@@ -93,6 +93,7 @@ Every folder has an `_index.md` saying what it holds. A new file gets one line i
 | What tools you can reach and how | `System/Connections.md` |
 | What runs on its own | `System/Automations.md` |
 | What happened in past sessions | `System/Sessions.md` |
+| Setting up a new Mac or Windows computer | `Tools/setup.sh` on a Mac, `Tools/setup.cmd` on Windows |
 | How Claude and Codex share this folder | `System/Platforms.md` |
 
 ## Source of truth
@@ -155,5 +156,5 @@ In Claude Code type /name. In Codex type $name. The Codex entries in `.agents/sk
 - Preserve before changing. Nothing is deleted. Superseded material goes to `Archive/` with the date in the folder name.
 - A folder either has real content or it does not exist.
 - Files people read are written plain: headings, lists and tables. No walls of text.
-- Secrets never go in a markdown file or a commit. Key values live in `.env`, which git ignores. Only the key name is written down.
+- Secrets never go in a markdown file, a chat or a commit. Key values live in `.env`, which git ignores and Claude cannot read. `.env.example` explains it. When a tool needs a key, write the key name in `.env` and the connection file, then ask the owner to paste the value into `.env` themselves.
 - After any change to structure, run `python3 Tools/check.py` and commit. The commit history is how the owner checks your work.

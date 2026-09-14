@@ -4,7 +4,7 @@ The answer to "where does this live" and "where does a new thing go". The manual
 
 ## The shape
 
-The root holds the two identical manuals, `README.md`, `.gitignore`, eleven folders, and the hidden wiring folders `.claude/`, `.agents/`, `.codex/`, `.git/` and `.env`. Nothing else. A new top level folder is a decision that goes in `Decisions/Log.md` first, never a convenience.
+The root holds the two identical manuals, `README.md`, `.gitignore`, eleven folders, and the hidden wiring folders `.claude/`, `.agents/`, `.codex/`, `.git/`, plus `.gitattributes`, `.env.example` and the key file `.env`. Nothing else. A new top level folder is a decision that goes in `Decisions/Log.md` first, never a convenience.
 
 | Folder | What it is | Who reads it |
 |---|---|---|
@@ -68,7 +68,7 @@ An area file describes how things are. A project describes what is being changed
 3. A folder either has real content or it does not exist, apart from the eleven that ship with the system.
 4. Preserve before changing. Nothing is deleted. Move it to `Archive/` with the date.
 5. Big media stays out of git. Video, audio, raw photos and large exports are ignored by `.gitignore`. Their folders and notes are still committed.
-6. Secrets live only in `.env`, which git ignores. Markdown files name the key, never the value.
+6. Secrets live only in `.env`, which git ignores. `.env.example` explains the file and the setup script creates `.env` from it. Markdown files name the key, never the value. Claude is blocked from reading `.env` in `.claude/settings.json`.
 7. After a structural change, run `python3 Tools/check.py`, fix what it reports, then commit.
 8. `Scratch/` is cleared of anything older than 14 days. Keep it by moving it to the right folder.
 

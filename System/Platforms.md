@@ -13,6 +13,19 @@ How Claude Code and Codex share this folder, and what has actually been tested i
 | Memory | Built-in memory is a cache | Built-in memory is a cache | `Memory/` is the record |
 | Settings and permissions | `.claude/settings.local.json`, not committed | Codex settings, not committed | Nothing secret is shared |
 
+## Mac and Windows
+
+| Need | Mac | Windows |
+|---|---|---|
+| Set up the computer | `bash Tools/setup.sh` | Double click `Tools\setup.cmd` |
+| Run the check | `python3 Tools/check.py` | `python Tools\check.py` |
+| Hidden files | Folders starting with a dot are hidden in Finder. Press Command Shift Full stop to show them | Shown normally in Explorer |
+| Shell the assistant uses | zsh | Git Bash, which comes with Git for Windows. Without it Claude Code uses PowerShell and the hooks may not run |
+| Where the Claude login lives | The Mac keychain | The user folder, in `.claude`, outside this folder |
+| Codex hooks | Work | Not tested. Start with Claude Code |
+
+Line endings are fixed by `.gitattributes`, so files edited on one machine do not show as changed on the other. Keep this folder out of iCloud Drive, OneDrive and Dropbox, because two machines syncing `.git` corrupts it.
+
 ## Tested
 
 | Check | Claude Code | Codex |

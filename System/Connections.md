@@ -18,4 +18,4 @@ Ways a tool can be reached: a connector built into Claude or Codex, a script in 
 
 The first two to connect, from onboarding: not set yet.
 
-Key values never go in this file. Write only the name of the key, for example `GMAIL_APP_PASSWORD`.
+Key values never go in this file. Write only the name of the key, for example `GMAIL_APP_PASSWORD`. The value goes in `.env`, pasted there by the owner. `.env.example` explains the file.

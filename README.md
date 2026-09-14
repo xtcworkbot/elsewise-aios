@@ -17,11 +17,12 @@ Built by Elsewise, from months of running a real business on this exact system e
 ## Getting started
 
 1. Get the folder onto your computer. Click the green Code button on GitHub and choose Download ZIP, then unzip it into your home folder. Or clone it if you know git.
-2. Open the folder in VS Code, or in the Claude Code or Codex app.
-3. Start a chat with Claude Code or Codex in this folder.
-4. Type `/onboard` in Claude Code, or `$onboard` in Codex.
-5. Answer the questions properly. It takes 30 to 40 minutes and it is the best time you will spend on this system. Everything is saved as you go.
-6. When it finishes, close the chat and open a new one. Ask your assistant what the one thing is that you should focus on this week.
+2. Run the setup. On a Mac, open Terminal in the folder and run `bash Tools/setup.sh`. On Windows, double click `Tools\setup.cmd`. It installs anything missing, creates your key file and checks the wiring. Run it again any time.
+3. Open the folder in VS Code, or in the Claude Code or Codex app.
+4. Start a chat with Claude Code or Codex in this folder. The first time, it asks you to sign in.
+5. Type `/onboard` in Claude Code, or `$onboard` in Codex.
+6. Answer the questions properly. It takes 30 to 40 minutes and it is the best time you will spend on this system. Everything is saved as you go.
+7. When it finishes, close the chat and open a new one. Ask your assistant what the one thing is that you should focus on this week.
 
 ## Using it every day
 
@@ -61,12 +62,12 @@ In Claude Code, skills are typed with a slash, like `/brief`. In Codex, with a d
 
 - Run the audit skill a week after setup, then every month.
 - Run the level-up skill once a week. One small improvement each time.
-- Big video and audio files stay out of the save history automatically. Your passwords and keys go in a `.env` file, which is never saved to history.
+- Big video and audio files stay out of the save history automatically. Your passwords and keys go in the `.env` file the setup made, which is never saved to history and which Claude is blocked from reading. `.env.example` explains it.
 - `python3 Tools/check.py` checks the wiring any time.
 
 ## Needs
 
-- A Mac or a Windows computer. On Windows, start with Claude Code. Codex on Windows is not tested yet.
-- Claude Code or Codex, signed in. In Codex, hooks and custom agents may need turning on in its settings. Skills work without that.
-- Git, for save points. On a Mac it installs with Apple's command line tools the first time you use it. On Windows, install Git for Windows before Claude Code, because Claude Code uses the Git Bash that comes with it.
-- Python 3, for the hooks and the check script. It comes with those same tools on a Mac. On Windows, install it from python.org and tick "Add python.exe to PATH". On Windows the check command is `python Tools/check.py`.
+- A Mac or a Windows computer. The setup script installs everything below. On Windows, start with Claude Code. Codex on Windows is not tested yet.
+- A paid Claude plan for Claude Code, or a ChatGPT plan for Codex. In Codex, hooks and custom agents may need turning on in its settings. Skills work without that.
+- Git, for save points. Python 3, for the hooks and the check script. Node, for some tools. On Windows the check command is `python Tools\check.py`.
+- Keep the folder out of iCloud Drive, OneDrive and Dropbox. Syncing breaks the save history.
