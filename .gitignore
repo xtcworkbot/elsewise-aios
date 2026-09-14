@@ -1,0 +1,54 @@
+# Secrets. Key values live only in .env. Markdown files name the key, never the value.
+.env
+.env.*
+*.pem
+*.key
+*token*.json
+*credentials*.json
+
+# Local engine settings that belong to this computer only
+.claude/settings.local.json
+.codex/config.toml
+
+# Throwaway work. Only the index is kept.
+Scratch/*
+!Scratch/_index.md
+
+# Large media. Kept in the folders, never committed.
+*.mp4
+*.mov
+*.m4v
+*.avi
+*.mkv
+*.webm
+*.mxf
+*.braw
+*.r3d
+*.wav
+*.aif
+*.aiff
+*.mp3
+*.m4a
+*.flac
+*.psd
+*.psb
+*.raw
+*.cr2
+*.cr3
+*.nef
+*.arw
+*.dng
+*.heic
+*.zip
+*.dmg
+*.prproj
+*.drp
+*.fcpbundle/
+
+# System and tool clutter
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+node_modules/
+*.log
